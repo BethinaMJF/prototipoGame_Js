@@ -99,11 +99,11 @@ function checkCollision() {
     personagemRect.top -10 <= inimigoRect.bottom-10 &&
     personagemRect.bottom -10 >= inimigoRect.top-10
   ) {
-    alert('Você perdeu uma vida');
     vidaP--;
     contagemVida()
     reposicionarInimigo()
     document.getElementById('vidaCount').innerHTML=vidaP;
+    vidaBonus();
   }
 }
 
@@ -122,7 +122,6 @@ let vidaI= 3;
 
 function contagemVida(){
   if(vidaP == 0){
-    alert('Vidas zeradas, você perdeu');
     inimigo.style.display = 'none';
     window.location.href='perdeu.html'
 
@@ -133,7 +132,6 @@ function contagemVida(){
 
 function contagemVidaB(){
   if(vidaI == 0){
-    alert('Você venceu');
     window.location.href='ganhou.html'
   } 
 }
@@ -200,7 +198,6 @@ function checkTiroCollision(tiro) {
     tiroRect.top < inimigoRect.bottom &&
     tiroRect.bottom > inimigoRect.top
   ) {
-    alert('Inimigo atingido!');
     // inimigo.style.display = 'none';  Oculta o bloco inimigo
     tiro.remove();
     vidaI--;
@@ -345,10 +342,9 @@ function sequenciaDialogos(){
   })
 }
 
-//////////////////////////
+// personagem e vida extra////////////////////////
 
 const bonus = document.getElementById('bonus');
-
 
 function checkCollisionBonus() {
   const personagemRect = personagem.getBoundingClientRect();
@@ -360,12 +356,50 @@ function checkCollisionBonus() {
     personagemRect.top < bonusRect.bottom &&
     personagemRect.bottom > bonusRect.top
   ) {
-    alert('Voce ganhou uma vida!');
     vidaP= vidaP + 1;
     bonusApagar.parentNode.removeChild(bonusApagar);
-    updatevidaP()
-
+    updatevidaP();
+    mensagemBonus();
   }
 }
-///////////////
+
+// vida bonus /////////////
+
+const divCair = document.getElementById("bonus");
+const screenHeight = window.innerHeight;
+const divHeight = divCair.clientHeight;
+const targetPosition = (screenHeight - divHeight) / 2; // Posição final no meio da tela
+
+let currentPosition = 0;
+const animationSpeed = 2; // Velocidade da animação (ajuste conforme necessário)
+
+function animateDiv() {
+    if (currentPosition < targetPosition) {
+        currentPosition += animationSpeed;
+        divCair.style.top = currentPosition + "px";
+        requestAnimationFrame(animateDiv);
+    }
+}
+
+function vidaBonus(){
+  if( vidaP <2){
+    animateDiv();
+   }
+}
+
+// mens temp
+var messageElement = document.getElementById('message');
+
+function mostrarMensagem(mensagem, duracao) {
+  messageElement.textContent = mensagem;
+  messageElement.style.display = 'block';
+  setTimeout(function() {
+    messageElement.style.display = 'none';
+  }, duracao);
+}
+
+function mensagemBonus(){
+  mostrarMensagem('Vida extra.', 30000); // Mensagem por 2 segundos
+}
+
 // Referência ao elemento do modal
