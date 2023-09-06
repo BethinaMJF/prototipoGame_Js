@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../IMG/fundo.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.personagem {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+.posicaoA{
+    width: 50px;
+}
+
+.inimigo {
+    background-image: url("../IMG/andando_baixo.gif");
+    position: absolute;
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size:cover ;
+}
+
+.tiro {
+    width: 30px;
+    height: 30px;
+    background-image: url("../IMG/tiro.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute; /* Adicione esta linha para posicionar corretamente os tiros */
+}
+
+.mensagem{
+    font-size: 25px;
+    width: 400px;
+    height: 180px;
+    background-color: rgb(8, 191, 191);
+    padding: 30px;
+    border-radius: 30px;
+}
+
+/* nova mensagem */
+
+.mensagemContainer {
+    width: 500px;
+    height: 220px;
+
+    border: 1px solid black;
+
+    font-size: large;
+
+    display: flex;
+
+    user-select: none;
+    position: absolute;
+    bottom: 0;
+}
+
+
+.textMensagem{
+    color: white;
+    font-size: x-large;
+
+    user-select: none;
+}
+
+.ladoEsquerdoMsgContainer{
+    height: 100%;
+    width: 31%;
+
+
+    user-select: none;
+}
+.ladoDireitoMsgContainer{
+    height: 90%;
+    width: 69%;
+
+    user-select: none;
+
+    overflow-wrap: break-word;
+    text-overflow: clip;
+
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+
+.backgroundMensagemUrucum {
+    background: url(../IMG/caixas/caixa_de_dialogo_urucum.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.backgroundMensagemCaronte {
+    background: url(../IMG/caixas/caixa_de_dialogo_caronte.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hiddenMessage {
+    display: none;
+}
+
+.bonus{
+    background-color: red;
+    width: 30px;
+    height: 30px;
+}
+
+#box{
+    width: 300px;
+    height: 100px;
+    margin-bottom: auto;
+    margin-right: auto;
+}
+
+.vidas{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 1px 1px 5px rgb(255, 255, 255);
+}
+
+.vidasI{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 1px 1px 5px rgb(255, 255, 255);
+}
+
+#vidaCount{
+    background-color: rgb(255, 255, 255);
+}
+#vidaCountInimigo{
+    background-color: rgb(255, 255, 255);
+}
+/* 
+
+
+
+modal*/
