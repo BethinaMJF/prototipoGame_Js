@@ -399,7 +399,7 @@ function mostrarMensagem(mensagem, duracao) {
 }
 
 function mensagemBonus(){
-  mostrarMensagem('Vida extra.', 30000); // Mensagem por 2 segundos
+  mostrarMensagem('Vida extra.', 3000); // Mensagem por 2 segundos
 }
 
 // Referência ao elemento do modal
